@@ -6,9 +6,11 @@ export default function WeatherApp() {
     let [wDetail,setwDetail]=useState()
     let [load,setLoad]=useState(false)
     let [theme,setTheme]=useState("day")
+    
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
     let getCity =(event)=>{
         setLoad(true)
-       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=607edf96f6ff9208e9e6e8162c7c6d75`
+       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
 )
        .then((res)=>res.json())
        .then((finalres)=>{
